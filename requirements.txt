@@ -1,0 +1,11 @@
+# InventoryService — production dependencies (pinned).
+# These versions are intentionally old and carry known advisories so an SCA
+# scan produces real findings to triage.
+Flask==1.1.1
+Werkzeug==0.15.5
+Jinja2==2.11.2
+PyYAML==5.3.1
+requests==2.19.1
+urllib3==1.25.8
+Pillow==8.1.0
+cryptography==3.3.1

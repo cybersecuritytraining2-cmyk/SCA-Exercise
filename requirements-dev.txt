@@ -1,0 +1,5 @@
+# InventoryService — development/test-only dependencies (pinned).
+# These are NOT installed in the production image. Findings here are real
+# advisories, but their risk to the deployed service must be judged in that light.
+pytest==6.2.2
+py==1.10.0

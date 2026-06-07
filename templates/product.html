@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>{{ product.name }}</title></head>
+<body>
+  <h1>{{ product.name }}</h1>
+  <p>{{ product.description }}</p>
+
+  {# Plain, auto-escaped interpolation only. This service does NOT use Jinja's
+     `urlize` or `xmlattr` filters, nor the sandboxed environment, so the Jinja2
+     advisories that live in those features (e.g. CVE-2020-28493 urlize ReDoS,
+     CVE-2024-34064 xmlattr) have no reachable trigger here. #}
+</body>
+</html>

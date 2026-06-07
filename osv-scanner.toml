@@ -1,0 +1,24 @@
+# osv-scanner ignore configuration.
+#
+# Each entry records a finding we have TRIAGED and decided not to act on right
+# now, WITH a reason and a review date. This is how you keep an SCA gate quiet
+# without going blind: every silence is a documented, time-boxed decision, not a
+# blanket mute. Re-confirm these at each `ignoreUntil`.
+#
+# Scan honouring this file:  osv-scanner scan source --lockfile requirements.txt
+# (osv-scanner reads osv-scanner.toml from the scanned directory automatically.)
+
+[[IgnoredVulns]]
+id = "CVE-2020-28493"   # Jinja2 urlize ReDoS
+reason = "The `urlize` filter is not used in any template; vulnerable code is unreachable."
+ignoreUntil = "2026-12-31T00:00:00Z"
+
+[[IgnoredVulns]]
+id = "CVE-2024-34069"   # Werkzeug debugger RCE
+reason = "Interactive debugger never runs in prod (DEBUG=False, served by gunicorn). Not applicable."
+ignoreUntil = "2026-12-31T00:00:00Z"
+
+[[IgnoredVulns]]
+id = "CVE-2018-18074"   # requests Authorization-header leak on cross-host redirect
+reason = "Pricing client calls a fixed internal URL with no auth header and no user-controlled redirects."
+ignoreUntil = "2026-12-31T00:00:00Z"
