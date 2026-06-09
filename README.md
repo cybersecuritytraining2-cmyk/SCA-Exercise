@@ -51,11 +51,21 @@ doesn't run the app.
 
 ## Run the app (optional)
 
-If you want to interact with InventoryService while you triage:
+> **Python version requirement:** the dependencies are deliberately pinned to old,
+> vulnerable versions (that is the point of the exercise). Several of them —
+> notably Pillow 8.1.0 — **cannot build on Python 3.12+**. You will get a build
+> error or a `ResolutionImpossible` conflict on modern Python.
+> To run the app you need **Python 3.9, 3.10, or 3.11** (e.g. via `pyenv`).
+>
+> **Running the app is not required.** OSV-Scanner reads `requirements.txt` directly —
+> nothing needs to be installed. Skip this section unless you specifically want to
+> interact with the endpoints.
+
+If you have Python ≤3.11 available:
 
 ```bash
-# create and activate a virtual environment
-python3 -m venv scavenv
+# create and activate a virtual environment with a compatible Python
+python3.11 -m venv scavenv
 source scavenv/bin/activate      # Windows: scavenv\Scripts\activate
 
 # install dependencies
@@ -68,9 +78,6 @@ flask --app app run --debug --port 5001
 The app will be available at <http://127.0.0.1:5001>.
 
 > Port 5000 may be reserved on your machine. Use `--port 5001` or any other free port.
-
-> Running the app is not required — the exercise works entirely from the manifest
-> and the scan output.
 
 ---
 
