@@ -49,6 +49,31 @@ doesn't run the app.
 
 ---
 
+## Run the app (optional)
+
+If you want to interact with InventoryService while you triage:
+
+```bash
+# create and activate a virtual environment
+python3 -m venv scavenv
+source scavenv/bin/activate      # Windows: scavenv\Scripts\activate
+
+# install dependencies
+pip install -r requirements.txt
+
+# start the dev server
+flask --app app run --debug --port 5001
+```
+
+The app will be available at <http://127.0.0.1:5001>.
+
+> Port 5000 may be reserved on your machine. Use `--port 5001` or any other free port.
+
+> Running the app is not required — the exercise works entirely from the manifest
+> and the scan output.
+
+---
+
 ## Run the scan
 
 ```bash
