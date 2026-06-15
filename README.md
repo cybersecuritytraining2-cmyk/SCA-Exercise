@@ -84,17 +84,22 @@ The app will be available at <http://127.0.0.1:5001>.
 ## Run the scan
 
 ```bash
-# Production dependencies — expect ~112 findings across 8 packages.
-osv-scanner scan source --lockfile requirements.txt --no-config-ignores
+# Production dependencies — expect ~112 findings across 8 packages (raw, pre-triage).
+osv-scanner scan source --lockfile requirements.txt
 
 # Development-only dependencies — 2 findings.
 osv-scanner scan source --lockfile requirements-dev.txt
 ```
 
 The count rises over time: these versions are frozen, so every new advisory
-published against them adds to the pile — a lesson in itself. `--no-config-ignores`
-shows the raw, pre-triage picture; drop it to see the triaged result once you have
-worked through the challenges.
+published against them adds to the pile — a lesson in itself. The first command
+shows the raw, pre-triage picture; once you have worked through the challenges,
+the `osv-scanner.toml` ignore list will suppress the noise and you can re-run to
+see the triaged result.
+
+> **Note (v2):** In OSV-Scanner v2 the `--no-config-ignores` flag was removed.
+> To see raw results, simply run without an `osv-scanner.toml` present, or
+> temporarily rename it: `mv osv-scanner.toml osv-scanner.toml.bak`.
 
 ---
 
